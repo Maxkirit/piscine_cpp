@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:28:56 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/17 11:50:02 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/17 11:59:53 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include <iomanip>
 #include <string>
 #include <cstdlib>
+#include <cmath>
+
+unsigned getNumberDigits (unsigned i)
+{
+    return i > 0 ? (int) log10 ((double) i) + 1 : 1;
+}
 
 std::string	trimWhitespaces(const std::string str)
 {
@@ -93,8 +99,13 @@ void	add(PhoneBook *book)
         std::cout << "Phone number: ";
         std::getline(std::cin, field);
         field = trimWhitespaces(field);
+        num = atoi(field.c_str());
+        if (num == 0 || getNumberDigits(num) != field.length())
+        {
+            std::cout << "Enter digits only." << std::endl;
+            field = "";
+        }
     }
-	num = atoi(field.c_str());
 	book->list[i].setNumber(num);
 
 	i++;
