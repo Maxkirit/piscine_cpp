@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:28:56 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/16 21:00:39 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/17 08:53:46 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,28 @@ void	add(PhoneBook *book)
 	std::getline(std::cin, field);
 	field = trimWhitespaces(field);
 	book->list[i].setFirstName(field);
+
 	std::cout << "Last Name: ";
 	std::getline(std::cin, field);
 	field = trimWhitespaces(field);
 	book->list[i].setLastName(field);
+
 	std::cout << "Nickname: ";
 	std::getline(std::cin, field);
 	field = trimWhitespaces(field);	
 	book->list[i].setNickname(field);
+
 	std::cout << "Secret: ";
 	std::getline(std::cin, field);
 	field = trimWhitespaces(field);
-	book->list[i].setLastName(field);
+	book->list[i].setSecret(field);
+
 	std::cout << "Phone number: ";
 	std::getline(std::cin, field);
 	field = trimWhitespaces(field);
 	num = atoi(field.c_str());
 	book->list[i].setNumber(num);
+
 	i++;
 	if (i == 8)
 		i = 0;
@@ -82,7 +87,7 @@ void	add(PhoneBook *book)
 void	printField(std::string field)
 {
 	if (field.length() > 10)
-		std::cout << std::setw(9) << field << ". | ";
+		std::cout << std::string(&field[0], 9) << ". | ";
 	else
 		std::cout << field << std::string(10 - field.length(), ' ') << " | ";
 	return ;
@@ -104,7 +109,7 @@ void	search(PhoneBook *book)
 	std::cout << std::endl << "Which number ? (enter index): ";
 	std::getline(std::cin, field);
 	field = trimWhitespaces(field);
-	num = atoi(field.c_str());
+	num = atoi(field.c_str()) - 1;
 	while (num < 0 || num > 8 || book->list[num].getNumber() < 0)
 	{
 		std::cout << "Enter existing contact in range [1,8]: ";
@@ -112,7 +117,7 @@ void	search(PhoneBook *book)
 		field = trimWhitespaces(field);
 		num = atoi(field.c_str()) - 1;
 	}
-	std::cout << "Contact (" << num << ")" << std::endl;
+	std::cout << "Contact (" << num + 1 << ")" << std::endl;
 	std::cout << "first name: "<< book->list[num].getFirstName() << std::endl;
 	std::cout << "last name: " << book->list[num].getLastName() << std::endl;
 	std::cout << "nickname : " << book->list[num].getNickname() << std::endl;

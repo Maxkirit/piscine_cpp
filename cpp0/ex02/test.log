@@ -1,0 +1,81 @@
+[20260117_113134]
+ index:0;amount:42;created
+[20260117_113134]
+ index:1;amount:54;created
+[20260117_113134]
+ index:2;amount:957;created
+[20260117_113134]
+ index:3;amount:432;created
+[20260117_113134]
+ index:4;amount:1234;created
+[20260117_113134]
+ index:5;amount:0;created
+[20260117_113134]
+ index:6;amount:754;created
+[20260117_113134]
+ index:7;amount:16576;created
+ accounts:8;amount:20049;deposits:0;withdrawals:0
+ index:0;amount:42;deposits:0;withdrawals:0
+ index:1;amount:54;deposits:0;withdrawals:0
+ index:2;amount:957;deposits:0;withdrawals:0
+ index:3;amount:432;deposits:0;withdrawals:0
+ index:4;amount:1234;deposits:0;withdrawals:0
+ index:5;amount:0;deposits:0;withdrawals:0
+ index:6;amount:754;deposits:0;withdrawals:0
+ index:7;amount:16576;deposits:0;withdrawals:0
+[20260117_113134]
+ index:0p_amount:42deposit:5amount:47nb_deposits:1
+[20260117_113134]
+ index:1p_amount:54deposit:765amount:819nb_deposits:1
+[20260117_113134]
+ index:2p_amount:957deposit:564amount:1521nb_deposits:1
+[20260117_113134]
+ index:3p_amount:432deposit:2amount:434nb_deposits:1
+[20260117_113134]
+ index:4p_amount:1234deposit:87amount:1321nb_deposits:1
+[20260117_113134]
+ index:5p_amount:0deposit:23amount:23nb_deposits:1
+[20260117_113134]
+ index:6p_amount:754deposit:9amount:763nb_deposits:1
+[20260117_113134]
+ index:7p_amount:16576deposit:20amount:16596nb_deposits:1
+ accounts:8;amount:20057;deposits:8;withdrawals:0
+ index:0;amount:47;deposits:1;withdrawals:0
+ index:1;amount:819;deposits:1;withdrawals:0
+ index:2;amount:1521;deposits:1;withdrawals:0
+ index:3;amount:434;deposits:1;withdrawals:0
+ index:4;amount:1321;deposits:1;withdrawals:0
+ index:5;amount:23;deposits:1;withdrawals:0
+ index:6;amount:763;deposits:1;withdrawals:0
+ index:7;amount:16596;deposits:1;withdrawals:0
+[20260117_113134]
+ index:0p_amount:47withdrawal:refused[20260117_113134]
+ index:1p_amount:819withdrawal:34amount:785nb_withdrawals:1
+[20260117_113134]
+ index:2p_amount:1521withdrawal:657amount:864nb_withdrawals:1
+[20260117_113134]
+ index:3p_amount:434withdrawal:4amount:430nb_withdrawals:1
+[20260117_113134]
+ index:4p_amount:1321withdrawal:76amount:1245nb_withdrawals:1
+[20260117_113134]
+ index:5p_amount:23withdrawal:refused[20260117_113134]
+ index:6p_amount:763withdrawal:657amount:106nb_withdrawals:1
+[20260117_113134]
+ index:7p_amount:16596withdrawal:7654amount:8942nb_withdrawals:1
+ accounts:8;amount:10975;deposits:8;withdrawals:6
+ index:0;amount:47;deposits:1;withdrawals:0
+ index:1;amount:785;deposits:1;withdrawals:1
+ index:2;amount:864;deposits:1;withdrawals:1
+ index:3;amount:430;deposits:1;withdrawals:1
+ index:4;amount:1245;deposits:1;withdrawals:1
+ index:5;amount:23;deposits:1;withdrawals:0
+ index:6;amount:106;deposits:1;withdrawals:1
+ index:7;amount:8942;deposits:1;withdrawals:1
+ index:0;amount:47;closed
+ index:1;amount:785;closed
+ index:2;amount:864;closed
+ index:3;amount:430;closed
+ index:4;amount:1245;closed
+ index:5;amount:23;closed
+ index:6;amount:106;closed
+ index:7;amount:8942;closed
