@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:28:56 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/17 08:53:46 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/17 11:50:02 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,34 +48,52 @@ void	printContacts(PhoneBook *book)
 //Then, start overwriting from the beginning.
 void	add(PhoneBook *book)
 {
-	std::string	field;
+	std::string	field = "";
 	int			num;
 	
 	static int i = 0;
 
-	std::cout << "First Name: ";
-	std::getline(std::cin, field);
-	field = trimWhitespaces(field);
+    while (!field.compare(""))
+    {
+        std::cout << "First Name: ";
+        std::getline(std::cin, field);
+        field = trimWhitespaces(field);
+    }
 	book->list[i].setFirstName(field);
+    field = "";
 
-	std::cout << "Last Name: ";
-	std::getline(std::cin, field);
-	field = trimWhitespaces(field);
+    while (!field.compare(""))
+    {
+        std::cout << "Last Name: ";
+        std::getline(std::cin, field);
+        field = trimWhitespaces(field);
+    }
 	book->list[i].setLastName(field);
 
-	std::cout << "Nickname: ";
-	std::getline(std::cin, field);
-	field = trimWhitespaces(field);	
+    while (!field.compare(""))
+    {
+        std::cout << "Nickname: ";
+        std::getline(std::cin, field);
+        field = trimWhitespaces(field);
+    }
 	book->list[i].setNickname(field);
+    field = "";
 
-	std::cout << "Secret: ";
-	std::getline(std::cin, field);
-	field = trimWhitespaces(field);
+    while (!field.compare(""))
+    {
+        std::cout << "Secret: ";
+        std::getline(std::cin, field);
+        field = trimWhitespaces(field);
+    }
 	book->list[i].setSecret(field);
+    field = "";
 
-	std::cout << "Phone number: ";
-	std::getline(std::cin, field);
-	field = trimWhitespaces(field);
+    while (!field.compare(""))
+    {
+        std::cout << "Phone number: ";
+        std::getline(std::cin, field);
+        field = trimWhitespaces(field);
+    }
 	num = atoi(field.c_str());
 	book->list[i].setNumber(num);
 
