@@ -6,19 +6,19 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:28:35 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/16 20:29:25 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/19 11:14:14 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(void):_number(-1){
+Contact::Contact(void):_number("-1"){
 	std::cout << "Empty contact initialized" <<  std::endl;
 	return;
 };
 
 Contact::~Contact(void){
-	if (this->_number == -1)
+	if (this->_number == "-1")
 		return ;
 	std::cout << "Contact ";
 	if (!this->_firstName.empty())
@@ -47,7 +47,7 @@ void Contact::setSecret(std::string str){
 	return ;
 }
 
-void	Contact::setNumber(int n){
+void	Contact::setNumber(std::string n){
 	this->_number = n;
 	return ;
 }
@@ -67,6 +67,6 @@ std::string Contact::getSecret(void) const{
 	return (this->_secret);
 }
 
-int	Contact::getNumber(void) const{
+std::string Contact::getNumber(void) const{
 	return (this->_number);
 }

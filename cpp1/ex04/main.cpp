@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 14:26:28 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/19 11:06:43 by mturgeon         ###   ########.fr       */
+/*   Created: 2026/01/19 09:39:45 by mturgeon          #+#    #+#             */
+/*   Updated: 2026/01/19 09:45:11 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_HPP
-# define PHONE_BOOK_HPP
-
-#include "Contact.hpp"
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include <cstdlib>
-#include <cmath>
 
-class PhoneBook{
-	public:
-		Contact list[8];
-		PhoneBook(void);
-		~PhoneBook(void);
-        void    add(void);
-        void    search(void) const;
-};
-
-std::string	trimWhitespaces(const std::string str);
-unsigned    getNumberDigits (unsigned i);
-void	    printField(std::string field);
-
-#endif
+int main(int argc, char **argv)
+{
+	if (argc != 4)
+		return (1);
+	std::ifstream input = ifs(argv[1]);
+}

@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:27:26 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/16 19:14:24 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/19 11:14:28 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ class Contact{
 		void 		setLastName(std::string str);
 		void 		setNickname(std::string str);
 		void 		setSecret(std::string str);
-		void 		setNumber(int n);
+		void 		setNumber(std::string n);
 		std::string	getFirstName(void) const;
 		std::string	getLastName(void) const;
 		std::string	getNickname(void) const;
 		std::string	getSecret(void) const;
-		int			getNumber(void)	const;
+		std::string	getNumber(void)	const;
 	private:
 		std::string _firstName;
 		std::string _lastName;
 		std::string _nickname;
-		int			_number;
+		std::string	_number;
 		std::string _secret;
 };
 

@@ -8,7 +8,7 @@
         "name": "(gdb) Launch",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceFolder}/ex01/zombie_horde",
+        "program": "${workspaceFolder}/ex03/unnecessary_violence",
         "args": [],
         "stopAtEntry": false,
         "cwd": "${fileDirname}",
