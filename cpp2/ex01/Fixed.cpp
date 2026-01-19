@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:11:59 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/19 19:14:34 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/19 19:44:33 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ Fixed::~Fixed(void)
 }
 Fixed::Fixed(int const n)
 {
+    if (n < 0)
+    {
+        std::cout << "No neg values please." << std::endl;
+        return ;
+    }
 	this->_rawBits = n << this->_numFract;
 	std::cout << "Int constructor called." << std::endl;
 }
@@ -30,6 +35,11 @@ Fixed::Fixed(int const n)
 //roundf here to round to the nearest integer so we don't lose precision !
 Fixed::Fixed(float const flt)
 {
+    if (flt < 0)
+    {
+        std::cout << "No neg values please." << std::endl;
+        return ;
+    }
 	this->_rawBits = roundf(flt * (1 << this->_numFract));
 	std::cout << "Float constructor called." << std::endl;
 }
@@ -65,7 +75,12 @@ int	Fixed::getRawBits(void) const
 
 //does this work natively with neg numbers ??
 void	Fixed::setRawBits(int const raw)
-{		
+{	
+    if (raw < 0)
+    {
+        std::cout << "No neg values please." << std::endl;
+        return ;
+    }	
 	std::cout << "setRawBits member function called." << std::endl;
 	this->_rawBits = raw;
 	return ;

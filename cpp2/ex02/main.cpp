@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:10:38 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/19 20:30:14 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/19 21:05:03 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,25 @@
 
 int main( void ) {
 
-    Fixed a;
-    Fixed const b( 10 );
-    Fixed const c( 42.42f );
-    Fixed const d( b );
-    a = Fixed( 1234.4321f );
+    Fixed       a;
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed       c(1.5f);
     
-    std::cout << "a is " << a << std::endl;
-    std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-    std::cout << "d is " << d << std::endl;
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << "my tests: " << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << a/b << std::endl;
+    std::cout << b/b << std::endl;
+    std::cout << b/c << std::endl;
+    std::cout << Fixed::min(a-b, a+b) << std::endl;
+    std::cout << Fixed::max(c/b, b/c) << std::endl;
+    std::cout << Fixed::min(c/b, b/c) << std::endl;
+    std::cout << b + c << std::endl;
+    std::cout << b - c << std::endl;
     return 0;
 }
