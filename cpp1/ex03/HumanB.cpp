@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:41:30 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/17 17:11:41 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:33:21 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,16 @@ HumanB::HumanB(std::string name):
 
 HumanB::~HumanB(void)
 {
-	std::cout << "HumanB " << this->_name << "was destroyed." << std::endl;
+	std::cout << "HumanB " << this->_name << " was destroyed." << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon weapon)
+void	HumanB::setWeapon(Weapon &weapon)
 {
+    if (!weapon.getType().compare(""))
+	{
+		this->_weaponp = 0;
+		return ;
+	}
 	this->_weaponp = &weapon;
 }
 

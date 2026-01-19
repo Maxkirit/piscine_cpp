@@ -6,14 +6,14 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:40:46 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/17 17:02:40 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:10:21 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "Weapon.hpp"
 
-HumanA::HumanA(std::string name, Weapon weapon):
+HumanA::HumanA(std::string name, Weapon &weapon):
 	_name(name),
 	_weapon(weapon)
 {

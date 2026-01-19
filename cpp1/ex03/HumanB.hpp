@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:42:09 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/17 17:11:15 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:13:17 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class HumanB{
 	public:
 		HumanB(std::string name);
 		~HumanB(void);
-		void	setWeapon(Weapon type);
+		void	setWeapon(Weapon &type);
 		void	attack(void) const;
 	private:
 		std::string _name;

@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:39:54 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/17 16:57:52 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:10:27 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class HumanA{
 	public:
-		HumanA(std::string name, Weapon weapon);
+		HumanA(std::string name, Weapon &weapon);
 		~HumanA(void);
 		void	attack(void) const;
 	private:

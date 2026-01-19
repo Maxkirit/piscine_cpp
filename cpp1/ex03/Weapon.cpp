@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:39:35 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/17 16:50:53 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/19 09:29:49 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ Weapon::Weapon(std::string type):
 	std::cout << "Weapon " << this->_type << " created." << std::endl;
 }
 
-Weapon::Weapon(void)
+Weapon::~Weapon(void)
 {
 	std::cout << "Weapon " << this->_type << " deleted." << std::endl;
 }
 
 void	Weapon::setType(std::string newType)
 {
-	if (newType.compare(""))
+	if (!newType.compare(""))
 		return ;
 	this->_type = newType;
 	return ;

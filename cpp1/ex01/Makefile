@@ -3,7 +3,7 @@ SRC = main.cpp \
 	newZombie.cpp \
 	zombieHorde.cpp \
 
-CC = g++
+CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJS = $(SRC:.cpp=.o)
 NAME = zombie_horde
