@@ -4,7 +4,7 @@ SRC = main.cpp \
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJS = $(SRC:.cpp=.o)
-NAME = unnecessary_violence
+NAME = replace
 
 all: $(NAME)
 
