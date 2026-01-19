@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/19 14:27:35 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/19 15:44:26 by mturgeon         ###   ########.fr       */
+/*   Created: 2026/01/19 14:28:04 by mturgeon          #+#    #+#             */
+/*   Updated: 2026/01/19 15:34:52 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int	main(void)
+#include <iostream>
+#include <string>
+
+class Harl
 {
-	Harl    Cursor;
+    public:
+        Harl(void);
+        ~Harl(void);
+        void    complain(std::string debugLevel) const;
 
-    Cursor.complain("test");
-    Cursor.complain("INFO");
-    Cursor.complain("");
-    Cursor.complain("WARNING ");
-    Cursor.complain(" WARNING ");
-    Cursor.complain("warning");
-    Cursor.complain("DEBUG");
-    Cursor.complain("WARNING");
-    Cursor.complain("ERROR");
-    return (1);
-}
+    private:
+        void    _debug(void) const;
+        void    _info(void) const;
+        void    _warning(void) const;
+        void    _error(void) const;
+};
 
-
+#endif
