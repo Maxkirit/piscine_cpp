@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 16:37:48 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/19 09:21:12 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/20 14:01:18 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main(void)
         club.setType("some other type of club");
         bob.attack();
     }
+    std::cout << std::endl;
     {
         Weapon club = Weapon("crude spiked club");
         HumanB jim("Jim");

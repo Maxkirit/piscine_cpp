@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 10:56:51 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/20 11:05:35 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/20 12:58:07 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,20 @@
 
 class Point
 {
-    public:
-        Point(void);
-        Point(Fixed const &x, Fixed const &y);
-        Point(Point const &src);
-        ~Point(void);
-        
-        Point   &operator=(Point const &rhs);
-    private:
-        Fixed const x;
-        Fixed const y;
+	public:
+		Point(void);
+		Point(Fixed const &x, Fixed const &y);
+		Point(Point const &src);
+		~Point(void);
+		
+		Point   &operator=(Point const &rhs);
+		void    setX(Fixed const &newX);
+		void    setY(Fixed const &newY);
+		Fixed   getX(void) const;
+		Fixed	getY(void) const;
+	private:
+		Fixed _x;
+		Fixed _y;
 };
 
 #endif

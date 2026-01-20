@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:27:59 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/19 11:18:19 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/20 13:55:49 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void    PhoneBook::add(void)
         field = trimWhitespaces(field);
     }
 	this->list[i].setLastName(field);
+    field = "";
 
     while (!field.compare(""))
     {
@@ -98,7 +99,7 @@ void	PhoneBook::search(void) const
 	std::getline(std::cin, field);
 	field = trimWhitespaces(field);
 	num = atoi(field.c_str()) - 1;
-	while (num < 0 || num > 7)
+	while (num < 0 || num > 7 || this->list[num].getNumber() != "-1")
 	{
 		std::cout << "Enter existing contact in range [1,8]: ";
 		std::getline(std::cin, field);

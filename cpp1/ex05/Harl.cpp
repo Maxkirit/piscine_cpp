@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 14:28:30 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/19 15:18:10 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/20 14:12:06 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ void    Harl::complain(std::string level) const
                                         &Harl::_info,
                                         &Harl::_debug,
                                         &Harl::_warning};
-    // void (Harl::*test)(void) const;
+                                        
     std::string lvls[4] = {"ERROR",
                         "INFO",
                         "DEBUG",
                         "WARNING"};
+                        
     for (int i = 0; i < 4; i++)
     {
         if (lvls[i] == level)
