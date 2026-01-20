@@ -1,11 +1,11 @@
-SRC = PhoneBook.cpp \
-	Contact.cpp \
-	main.cpp
+SRC = main.cpp \
+	Fixed.cpp \
+	Point.cpp
 
-CC = g++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CC = c++
+FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJS = $(SRC:.cpp=.o)
-NAME = phonebook
+NAME = fixed03
 
 all: $(NAME)
 
@@ -23,4 +23,5 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean all
+
+.PHONY: all clean fclean re

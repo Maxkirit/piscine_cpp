@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:28:56 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/19 11:15:48 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:20:17 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ std::string	trimWhitespaces(const std::string str)
 	if (start == std::string::npos)
 		return ("");
 	size_t	end = str.find_last_not_of(whitespace);
-	return (str.substr(start, start - end + 1));
+	return (str.substr(start, end - start + 1));
 }
 
 void	printContacts(PhoneBook *book)
