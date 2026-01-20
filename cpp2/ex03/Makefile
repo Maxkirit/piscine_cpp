@@ -2,10 +2,10 @@ SRC = main.cpp \
 	Fixed.cpp \
 	Point.cpp
 
-CC = c++
+CC = g++
 FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJS = $(SRC:.cpp=.o)
-NAME = fixed03
+NAME = intersect
 
 all: $(NAME)
 
