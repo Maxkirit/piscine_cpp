@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:23:47 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/22 17:18:51 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/22 19:30:55 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ClapTrap::ClapTrap(void):
     _name(""),
     _hitPoints(100),
-    _energyPoints(100),
+    _energyPoints(50),
     _attackDmg(20)
 {
     std::cout << "Nameless ClapTrap constructed." << std::endl;
@@ -76,6 +76,11 @@ int ClapTrap::getHitPoints(void) const
 
 void    ClapTrap::attack(const std::string &target)
 {
+    if (target == "")
+    {
+        std::cout << this->_name << " tries to attack but has no targets!" << std::endl;
+        return ;
+    }
     if (this->_hitPoints == 0)
     {
         std::cout << this->_name << " is KO." << std::endl;

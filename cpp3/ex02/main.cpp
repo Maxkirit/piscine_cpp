@@ -6,27 +6,28 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:22:45 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/22 19:30:38 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/22 19:30:28 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
     {
-        ScavTrap    a;
-        ScavTrap    b(std::string("Le violoneux Ronald"));
-        ScavTrap    c(std::string("Le violoneux Michel"));
-        ScavTrap    d(c);
-        ScavTrap    e(std::string("Le violoneux Sylvestre"));
-        ScavTrap    f(std::string("Le violoneux Eric"));
+        FragTrap    a;
+        FragTrap    b(std::string("Le violoneux Ronald"));
+        FragTrap    c(std::string("Le violoneux Michel"));
+        FragTrap    d(c);
+        FragTrap    e(std::string("Le violoneux Sylvestre"));
+        FragTrap    f(std::string("Le violoneux Eric"));
         a = b;
 
         a.attack(d.getName());
         d.takeDamage(a.getDmg());
-        a.guardGate();
-        a.guardGate();
+        a.highFiveGuys();
+        a.highFiveGuys();
         d.beRepaired(3);
         a.attack(d.getName());
         d.takeDamage(a.getDmg());
@@ -70,7 +71,12 @@ int main(void)
         std::cout << "e hit points: " << e.getHitPoints() << std::endl;
     }
     {
-        ClapTrap a("Poor version");
+        ClapTrap a("the OG version");
         a.attack("");
+    }
+    {
+        ScavTrap a("Scav Version");
+        a.guardGate();
+        a.guardGate();
     }
 }

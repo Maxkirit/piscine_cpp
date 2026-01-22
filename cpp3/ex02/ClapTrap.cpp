@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:23:47 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/22 19:30:59 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/22 19:31:04 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 ClapTrap::ClapTrap(void):
     _name(""),
-    _hitPoints(10),
-    _energyPoints(10),
-    _attackDmg(3)
+    _hitPoints(100),
+    _energyPoints(100),
+    _attackDmg(30)
 {
     std::cout << "Nameless ClapTrap constructed." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name):
     _name(name),
-    _hitPoints(10),
-    _energyPoints(10),
-    _attackDmg(3)
+    _hitPoints(100),
+    _energyPoints(100),
+    _attackDmg(30)
 {
    std::cout << "ClapTrap " << this->_name << " constructed." << std::endl; 
 }
@@ -126,13 +126,13 @@ void    ClapTrap::beRepaired(unsigned int amount)
         std::cout << this->_name << " is exhausted and can't do anything!" << std::endl;
         return ;
     }
-    if (this->_hitPoints == 10)
+    if (this->_hitPoints == 100)
     {
         std::cout << this->_name << " is full life." << std::endl;
         return ;
     }
-    if (this->_hitPoints + amount > 10)
-        amount = 10 - this->_hitPoints;
+    if (this->_hitPoints + amount > 100)
+        amount = 100 - this->_hitPoints;
     this->_energyPoints--;
     std::cout << this->_name << " gained " << amount << " hit points." << std::endl;
     this->_hitPoints +=  amount;
