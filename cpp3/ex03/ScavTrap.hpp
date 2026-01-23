@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:50:17 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/23 12:58:07 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/23 13:00:46 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
     public:
         ScavTrap(void);

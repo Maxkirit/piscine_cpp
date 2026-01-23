@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/22 16:50:17 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/23 12:58:07 by mturgeon         ###   ########.fr       */
+/*   Created: 2026/01/22 19:13:48 by mturgeon          #+#    #+#             */
+/*   Updated: 2026/01/23 12:29:52 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
     public:
-        ScavTrap(void);
-        ScavTrap(std::string name);
-        ScavTrap(ScavTrap const &src);
-        ~ScavTrap(void);
-        
-        ScavTrap    &operator=(ScavTrap const &rhs);
+        FragTrap(void);
+        FragTrap(std::string name);
+        FragTrap(FragTrap const &src);
+        ~FragTrap(void);
 
-        void    guardGate(void);
-        bool    getGuardMode(void) const;
+        FragTrap    &operator=(FragTrap const &rhs);
 
-    private:
-        bool    _guardMode;
+        void    highFiveGuys(void);
 };
 
 #endif
