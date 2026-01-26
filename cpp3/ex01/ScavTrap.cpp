@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:51:29 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/23 12:59:37 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/26 08:10:06 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ ScavTrap::ScavTrap(void):
     ClapTrap(),
     _guardMode(false)
 {
+    this->_hitPoints = 100;
+    this->_energyPoints = 50;
+    this->_attackDmg = 20;
     std::cout << "Nameless Scavtrap constructed." << std::endl;
 }
 
@@ -24,6 +27,9 @@ ScavTrap::ScavTrap(std::string name):
     ClapTrap(name),
     _guardMode(false)
 {
+    this->_hitPoints = 100;
+    this->_energyPoints = 50;
+    this->_attackDmg = 20;
     std::cout << "ScavTrap: " << this->_name << " constructed." << std::endl;
 }
 

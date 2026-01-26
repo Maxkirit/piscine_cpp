@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:22:45 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/23 14:23:39 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/26 08:21:11 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int main(void)
 {
-
-    //correct claptrap attack value in all exercises
-
     DiamondTrap a("Le violoneux Ronald");
     DiamondTrap b("Le violoneux Michel");
     

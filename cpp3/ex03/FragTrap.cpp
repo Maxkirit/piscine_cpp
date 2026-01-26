@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 19:14:30 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/22 19:29:30 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/26 08:11:41 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,18 @@
 FragTrap::FragTrap(void):
     ClapTrap()
 {
+    this->_hitPoints = 100;
+    this->_energyPoints = 100;
+    this->_attackDmg = 30;
     std::cout << "Nameless FragTrap constructed." << std::endl;
 }
 
 FragTrap::FragTrap(std::string name):
     ClapTrap(name)
 {
+    this->_hitPoints = 100;
+    this->_energyPoints = 100;
+    this->_attackDmg = 30;
     std::cout << "FragTrap: " << this->_name << " constructed." << std::endl;
 }
 
