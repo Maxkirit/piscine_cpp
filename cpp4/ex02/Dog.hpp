@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/24 17:22:08 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 13:40:49 by mturgeon         ###   ########.fr       */
+/*   Created: 2026/01/24 17:23:09 by mturgeon          #+#    #+#             */
+/*   Updated: 2026/01/26 13:41:25 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat: public Animal
+class Dog: public AAnimal
 {
     public:
-        Cat(void);
-        Cat(std::string name);
-        Cat(Cat const &src);
-        virtual ~Cat(void);
+        Dog(void);
+        Dog(std::string name);
+        Dog(Dog const &src);
+        virtual ~Dog(void);
 
-        Cat &operator=(Cat const &rhs);
+        Dog &operator=(Dog const &rhs);
 
         std::string         getName(void) const;
         std::string         getType(void) const;
@@ -35,7 +35,8 @@ class Cat: public Animal
     private:
         std::string _name;
         Brain       *_ideas;
-        static const int  _brainSize = 100;       
+        static const int  _brainSize = 100;
 };
+
 
 #endif

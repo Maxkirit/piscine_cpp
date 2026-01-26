@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:22:08 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 13:40:49 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/26 13:41:17 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat: public Animal
+class Cat: public AAnimal
 {
     public:
         Cat(void);

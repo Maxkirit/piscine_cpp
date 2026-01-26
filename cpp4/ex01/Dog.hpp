@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:23:09 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 11:15:28 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/26 13:40:57 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog: public Animal
         Dog(void);
         Dog(std::string name);
         Dog(Dog const &src);
-        ~Dog(void);
+        virtual ~Dog(void);
 
         Dog &operator=(Dog const &rhs);
 
