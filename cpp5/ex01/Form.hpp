@@ -1,41 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 08:04:30 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/27 16:15:36 by mturgeon         ###   ########.fr       */
+/*   Created: 2026/01/27 16:17:17 by mturgeon          #+#    #+#             */
+/*   Updated: 2026/01/27 17:07:21 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <iostream>
-#include <iomanip>
 #include <string>
-#include <exception>
 
-class Bureaucrat
+class Bureaucrat;
+
+class Form
 {
 	private:
 		std::string	_name;
-		int			_grade;
+		bool		_signed;
+		int const	_minSign;
+		int const	_minExec;
+		//this operator doesn't make sense here bc minSign and minExec are const
+		//Kept in private to respect canonical form
+		Form	&operator=(Form const &rhs);
 
 	public:
-		Bureaucrat(void);
-		Bureaucrat(std::string name, int grade);
-		Bureaucrat(Bureaucrat const &src);
-		~Bureaucrat(void);
+		Form(void);
+		Form(std::string name, int minSign, int minExec);
+		Form(Form const &src);
 
-		Bureaucrat		&operator=(Bureaucrat const &rhs);  
-
+		bool const			&getSigned(void) const;
+		int const			&getSign(void) const;
+		int const			&getExec(void) const;
 		std::string const	&getName(void) const;
-		int const			&getGrade(void) const;
-		void				incrementGrade(void);
-		void				decrementGrade(void);
+		
+		void	beSigned(Bureaucrat const &b);
 
 		class GradeTooHigh: public std::exception
 		{
@@ -55,8 +59,6 @@ class Bureaucrat
 		};
 };
 
-//won't redefine the class ostream to overload << and can't define it inside Bureaucrat. 
-//IntelliSense
-std::ostream    &operator<<(std::ostream &os, Bureaucrat const &rhs);
+std::ostream	&operator<<(std::ostream &os,Form const &src);
 
 #endif
