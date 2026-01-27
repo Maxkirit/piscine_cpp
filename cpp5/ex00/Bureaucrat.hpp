@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 08:04:30 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/27 09:01:40 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 14:24:21 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,38 @@
 class Bureaucrat
 {
 	private:
-		std::string const   _name;
-		unsigned int        _grade;
+		std::string	_name;
+		int			_grade;
 
 	public:
 		Bureaucrat(void);
-		Bureaucrat(std::string name);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(Bureaucrat const &src);
 		~Bureaucrat(void);
 
 		Bureaucrat		&operator=(Bureaucrat const &rhs);  
 
 		std::string const	&getName(void) const;
-		unsigned int		getGrade(void) const;
+		int const			&getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
+
+		class GradeTooHigh: public std::exception
+		{
+			public:
+				virtual const char *what(void) const throw(){
+					return ("Grade too high");
+				}
+		};
+		
+		class GradeTooLow: public std::exception
+		{
+			public:
+				virtual const char *what(void) const throw(){
+					return ("Grade too low");
+				}
+			
+		};
 };
 
 //won't redefine the class ostream to overload << and can't define it inside Bureaucrat. 
