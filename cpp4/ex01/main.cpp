@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 11:20:57 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 13:28:53 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 07:07:43 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,19 @@ int main(void)
         }
         (*array[i]).makeSound();
     }
-    
+    for (int i = 0; i < 10; i++)
+    {
+        if (i % 2 == 0)
+        {
+            temp1 = reinterpret_cast <Cat *>(array[i]);
+            std::cout << temp1->getIdea(0) << std::endl;
+        }
+        else
+        {
+            temp2 = reinterpret_cast <Dog *>(array[i]);
+            std::cout << temp2->getIdea(0) << std::endl;
+        }
+    }
     Cat test("Tester");
     test.setIdea("I'm a cat !!", 0);
     Cat copy(test);
