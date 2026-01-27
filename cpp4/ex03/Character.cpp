@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 15:06:54 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 18:49:15 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:43:55 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ Character::Character(Character const &src):
     _discardCount(src._discardCount)
 {
     for (int i = 0; i < 4; i++)
-        this->_inventory[i] = src._inventory[i]->clone();
+    {
+        if (this->_inventory[i])
+            this->_inventory[i] = src._inventory[i]->clone();
+    }
 }
 
 Character::~Character(void)

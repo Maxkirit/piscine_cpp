@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/26 10:41:39 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/27 11:12:19 by mturgeon         ###   ########.fr       */
+/*   Created: 2026/01/27 08:17:51 by mturgeon          #+#    #+#             */
+/*   Updated: 2026/01/27 08:18:54 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Bureaucrat.hpp"
 
-#include <iostream>
-#include <string>
+Bureaucrat::Bureaucrat(void);
 
-class Brain
-{
-	public:
-		Brain(void);
-		Brain(Brain const &src);
-		~Brain(void);
+Bureaucrat(std::string name);
 
-		Brain   &operator=(Brain const &rhs);
+Bureaucrat(Bureaucrat const &src);
 
-		std::string const	&getIdea(unsigned int idx) const;
-		void        		setIdea(std::string newIdea, unsigned int idx);
-		
-	private:
-		std::string		_idea[100];
-};
+~Bureaucrat(void);
 
-#endif
+Bureaucrat  &operator=(Bureaucrat const &rhs);  
+
+std::string const	&getName(void) const;
+
+unsigned int    &getGrade(void) const;
+
+void    incrementGrade(void);
+void    decrementGrade(void);

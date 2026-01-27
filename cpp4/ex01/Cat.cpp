@@ -6,41 +6,34 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:22:57 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 13:16:01 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:23:48 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
 Cat::Cat(void):
-    Animal()
+    Animal("Cat")
 {
-    this->_type = "Cat";
-    this->_ideas = new Brain [_brainSize];
-    for (int i = 0; i < _brainSize; i++)
-        this->_ideas[i].setIdea("");
+    this->_mind = new Brain ();
     std::cout << "Cat constructed." << std::endl;
 }
 
 Cat::Cat(std::string name):
-    Animal(),
+    Animal("Cat"),
     _name(name)
 {
-    this->_type = "Cat";
-    this->_ideas = new Brain [_brainSize];
-    for (int i = 0; i < _brainSize; i++)
-        this->_ideas[i].setIdea("");
+    this->_mind = new Brain ();
     std::cout << "Cat named " << this->_name << " created." << std::endl;
 }
 
 Cat::Cat(Cat const &src):
-    Animal(),
+    Animal("Cat"),
     _name(src._name)
 {
-    this->_type = "Cat";
-    this->_ideas = new Brain [_brainSize];
-    for (int i = 0; i < _brainSize; i++)
-        this->_ideas[i].setIdea(src.getIdea(i));
+    this->_mind = new Brain ();
+    for (int i = 0; i < 100; i++)
+        this->_mind->setIdea(src.getIdea(i), i);
     std::cout << "Cat ";
     if (this->_name != "")
         std::cout << this->_name;
@@ -49,7 +42,7 @@ Cat::Cat(Cat const &src):
 
 Cat::~Cat(void)
 {
-    delete [] this->_ideas;
+    delete this->_mind;
     std::cout << "Cat destroyed." << std::endl;
 }
 
@@ -57,9 +50,9 @@ Cat  &Cat::operator=(Cat const &rhs)
 {
     this->_type = rhs._type;
     this->_name = rhs._name;
-    this->_ideas = new Brain[_brainSize];
-    for (int i = 0; i <_brainSize; i++)
-        this->_ideas[i].setIdea(rhs.getIdea(i));
+    this->_mind = new Brain ();
+    for (int i = 0; i < 100; i++)
+        this->_mind->setIdea(rhs.getIdea(i), i);
     std::cout << "Cat copied." << std::endl;
     return (*this);
 }
@@ -77,23 +70,23 @@ void    Cat::makeSound(void) const
     return ;
 }
 
-std::string const   &Cat::getIdea(int index) const
+std::string const   &Cat::getIdea(unsigned int index) const
 {
-    if (index >= _brainSize)
+    if (index >= 100)
     {
         std::cout << "Index too high ! Returning index [0]." << std::endl;
-        return (this->_ideas[0].getIdea());
+        return (this->_mind->getIdea(0));
     }
-    return (this->_ideas[index].getIdea());
+    return (this->_mind->getIdea(index));
 }
 
-void    Cat::setIdea(std::string newIdea, int index)
+void    Cat::setIdea(std::string newIdea, unsigned int index)
 {
-    if (index >= _brainSize || index < 0)
+    if (index >= 100 || index < 0)
     {
         std::cout << "Index out of bounds, either too small or too high. Operation cancelled." << std::endl;
         return ;
     }
-    this->_ideas[index].setIdea(newIdea);
+    this->_mind->setIdea(newIdea, index);
     return ;
 }

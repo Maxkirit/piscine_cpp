@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:23:09 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 13:41:25 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:13:23 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,13 @@ class Dog: public AAnimal
 
         std::string         getName(void) const;
         std::string         getType(void) const;
-        std::string const   &getIdea(int index) const;
-        void                setIdea(std::string newIdea, int index);
+        std::string const   &getIdea(unsigned int index) const;
+        void                setIdea(std::string newIdea, unsigned int index);
 
         virtual void    makeSound(void) const;
     private:
         std::string _name;
-        Brain       *_ideas;
-        static const int  _brainSize = 100;
+        Brain       *_mind;
 };
-
 
 #endif

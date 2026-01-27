@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 09:10:23 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 10:29:57 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:01:14 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class WrongAnimal
         std::string     getName(void) const;
         void            setName(std::string name);
         std::string     getType(void) const;
-        virtual void    makeSound(void) const;
+        void    makeSound(void) const;
     protected:
         std::string _type;
         std::string _name;

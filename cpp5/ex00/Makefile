@@ -1,15 +1,11 @@
-SRC = main2.cpp \
-	AMateria.cpp \
-	Character.cpp \
-	Cure.cpp \
-	Ice.cpp \
-	MateriaSource.cpp
+SRC = main.cpp \
+	Bureaucrat.cpp
 	
 
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJS = $(SRC:.cpp=.o)
-NAME = materias
+NAME = Bureaucrats
 
 all: $(NAME)
 

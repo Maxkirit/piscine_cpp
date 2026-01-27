@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 15:32:12 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 18:50:19 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:39:21 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,29 @@ int main(void)
     src->learnMateria(new Cure());
     ICharacter* me = new Character("me");
     AMateria* tmp;
+    AMateria* tmp1;
+    AMateria* tmp2;
+    AMateria* tmp3;
+    AMateria* tmp4;
+    AMateria* tmp5;
+    AMateria* tmp6;
     AMateria *temp;
 
     tmp = src->createMateria("ice");
+    tmp1 = src->createMateria("ice");
+    tmp2 = src->createMateria("ice");
+    tmp3 = src->createMateria("ice");
     me->equip(tmp);
-    tmp = src->createMateria("cure");
+    tmp4 = src->createMateria("cure");
+    tmp5 = src->createMateria("cure");
+    tmp6 = src->createMateria("cure");
     me->equip(tmp);
-    me->equip(tmp);
-    me->equip(tmp);
-    me->equip(tmp);
-    me->equip(tmp);
-    me->equip(tmp);
-    me->equip(tmp);
+    me->equip(tmp1);
+    me->equip(tmp1);
+    me->equip(tmp2);
+    me->equip(tmp3);
+    me->equip(tmp4);
+    me->equip(tmp5);
     ICharacter* bob = new Character("bob");
     me->use(0, *bob);
     me->use(1, *bob);

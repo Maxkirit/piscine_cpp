@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:01:53 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/24 17:16:33 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:00:51 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Animal
     public:
         Animal(void);
         Animal(Animal const &src);
-        ~Animal(void);
+        virtual ~Animal(void);
 
         Animal  &operator=(Animal const &rhs);
 

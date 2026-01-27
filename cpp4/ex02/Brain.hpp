@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 10:41:39 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/26 11:34:03 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:12:19 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,18 @@
 
 class Brain
 {
-    public:
-        Brain(void);
-        Brain(std::string idea);
-        Brain(Brain const &src);
-        ~Brain(void);
+	public:
+		Brain(void);
+		Brain(Brain const &src);
+		~Brain(void);
 
-        Brain   &operator=(Brain const &rhs);
+		Brain   &operator=(Brain const &rhs);
 
-        std::string const &getIdea(void) const;
-        void        setIdea(std::string newIdea);
-        
-    private:
-        std::string _idea;
+		std::string const	&getIdea(unsigned int idx) const;
+		void        		setIdea(std::string newIdea, unsigned int idx);
+		
+	private:
+		std::string		_idea[100];
 };
 
 #endif

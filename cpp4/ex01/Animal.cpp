@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:02:49 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/24 17:21:32 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/27 11:22:04 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ Animal::Animal(void):
     _type("")
 {
     std::cout << "Animal constructed." << std::endl;
+}
+
+Animal::Animal(std::string type):
+    _type(type)
+{
+    std::cout << "Animal " << this->_type << " created." << std::endl;
 }
 
 Animal::Animal(Animal const &src):
