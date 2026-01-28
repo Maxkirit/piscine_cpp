@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 17:24:16 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/27 11:23:54 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/28 16:08:37 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ Dog  &Dog::operator=(Dog const &rhs)
 {
     this->_type = rhs._type;
     this->_name = rhs._name;
+    delete this->_mind;
     this->_mind = new Brain ();
     for (int i = 0; i < 100; i++)
         this->_mind->setIdea(rhs.getIdea(i), i);
