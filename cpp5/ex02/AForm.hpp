@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 16:17:17 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/27 17:42:47 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/28 08:47:18 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
-	private:
+	protected:
 		std::string	_name;
 		bool		_signed;
 		int const	_minSign;
 		int const	_minExec;
-		//this operator doesn't make sense here bc minSign and minExec are const
-		//Kept in private to respect canonical form
-		Form	&operator=(Form const &rhs);
+        AForm		&operator=(AForm const &rhs);
 
 	public:
-		Form(void);
-		Form(std::string name, int minSign, int minExec);
-		Form(Form const &src);
-        ~Form(void);
+		AForm(void);
+		AForm(std::string name, int minSign, int minExec);
+		AForm(AForm const &src);
+		virtual ~AForm(void);
 
 		bool const			&getSigned(void) const;
 		int const			&getSign(void) const;
 		int const			&getExec(void) const;
 		std::string const	&getName(void) const;
 		
-		void	beSigned(Bureaucrat const &b);
+		void	        beSigned(Bureaucrat const &b);
+		void	        execute(Bureaucrat const &b) const;
+		virtual void	executeNow(void) const = 0;
 
 		class GradeTooHigh: public std::exception
 		{
@@ -60,6 +60,6 @@ class Form
 		};
 };
 
-std::ostream	&operator<<(std::ostream &os,Form const &src);
+std::ostream	&operator<<(std::ostream &os, AForm const &src);
 
 #endif
