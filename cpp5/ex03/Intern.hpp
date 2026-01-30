@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 10:17:06 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/28 16:02:08 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/28 17:32:21 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Intern
 	private:
 		Intern(Intern const &src);
 		Intern	&operator=(Intern const &rhs);
-		AForm	*_makeShrub(std::string name, std::string target) const;
-		AForm	*_makeRobot(std::string name, std::string target) const;
-		AForm	*_makePresident(std::string name, std::string target) const;
+		AForm	*_makeShrub(std::string target) const;
+		AForm	*_makeRobot(std::string target) const;
+		AForm	*_makePresident(std::string target) const;
 
 	public:
 		Intern(void);

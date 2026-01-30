@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 17:38:29 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/28 08:44:44 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/28 17:25:55 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class RobotomyRequestForm: public AForm
 
 	public:
 		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string name, std::string target);
+		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(RobotomyRequestForm const &src);
 
 		

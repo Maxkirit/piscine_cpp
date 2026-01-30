@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 17:39:52 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/28 08:44:49 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/28 17:25:47 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class PresidentialPardonForm: public AForm
 
 	public:
 		PresidentialPardonForm(void);
-		PresidentialPardonForm(std::string name, std::string target);
+		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(PresidentialPardonForm const &src);
 
 		

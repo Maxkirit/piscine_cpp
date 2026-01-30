@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 17:39:39 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/28 08:45:41 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/28 17:28:54 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,25 @@
 #include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm(void):
-    AForm("", 72, 5),
+    AForm("RobotomyRequestForm", 72, 5),
     _target("")
 {
     std::cout << "Nameless and targetless RobotomyRequestForm created." << std::endl;
 }
-RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target):
-    AForm(name, 72, 5),
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target):
+    AForm("RobotomyRequestForm", 72, 5),
     _target(target)
 {
-    std::cout << "RobotomyRequestForm " << this->_name << " for " << this->_target << " created." << std::endl;
-}
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src):
-    AForm(src._name, 72, 5),
-    _target(src._target)
-{
-    std::cout << "RobotomyRequestForm " << this->_name << " copied." << std::endl;
+    std::cout << "RobotomyRequestForm for " << this->_target << " created." << std::endl;
 }
 
-// RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &rhs)
-// {
-//     if (this != &rhs)
-//     {
-//         this->_name = rhs._name;
-//         this->_target = rhs._target;
-//     }
-//     return (*this);
-// }
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &src):
+    AForm("RobotomyRequestForm", 72, 5),
+    _target(src._target)
+{
+    std::cout << "RobotomyRequestForm for " << this->_target << " copied." << std::endl;
+}
 
 std::string const	&RobotomyRequestForm::getTarget(void) const
 {

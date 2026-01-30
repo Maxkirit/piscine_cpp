@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 08:17:51 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/27 19:15:57 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/29 08:42:35 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,7 @@ void    Bureaucrat::decrementGrade(void){
 
 void	Bureaucrat::signForm(AForm &form) const
 {
-    try
-    {
-        form.beSigned(*this);
-    }
-    catch (AForm::GradeTooLow &e)
-    {
-        std::cout << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
-        return ;
-    }
+    form.beSigned(*this);
     std::cout << this->_name << " signed " << form.getName() << std::endl;
     return ;
 }

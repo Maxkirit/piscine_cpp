@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 18:57:28 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/27 19:20:06 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/29 08:42:35 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int main(void)
     AForm       *f[5];
     for (int i = 0; i < 5; i++)
         f[i] = 0;
-    f[0] = new ShrubberyCreationForm("first", "home");
-    f[1] = new ShrubberyCreationForm("second", "work");
-    f[2] = new RobotomyRequestForm("MyFirstRobotomy!", "me");
-    f[3] = new RobotomyRequestForm("TheirFirstLobotomy", "them");
-    f[4] = new PresidentialPardonForm("TheOne", "TheBoss");
+    f[0] = new ShrubberyCreationForm("home");
+    f[1] = new ShrubberyCreationForm("work");
+    f[2] = new RobotomyRequestForm("me");
+    f[3] = new RobotomyRequestForm("them");
+    f[4] = new PresidentialPardonForm("TheBoss");
 
 
     std::cout << "-----SIGINING PHASE------" << std::endl << std::endl;

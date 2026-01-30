@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 17:36:33 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/28 08:44:39 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/28 17:26:01 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ShrubberyCreationForm: public AForm
 
 	public:
 		ShrubberyCreationForm(void);
-		ShrubberyCreationForm(std::string name, std::string target);
+		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &src);
 
 		

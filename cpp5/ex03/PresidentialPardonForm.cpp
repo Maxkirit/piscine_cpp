@@ -6,40 +6,32 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 17:40:48 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/28 08:45:47 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/28 17:27:41 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void):
-    AForm("", 72, 5),
+    AForm("PresidentialPardonForm", 72, 5),
     _target("")
 {
     std::cout << "Nameless and targetless PresidentialPardonForm created." << std::endl;
 }
-PresidentialPardonForm::PresidentialPardonForm(std::string name, std::string target):
-    AForm(name, 72, 5),
+
+PresidentialPardonForm::PresidentialPardonForm(std::string target):
+    AForm("PresidentialPardonForm", 72, 5),
     _target(target)
 {
-    std::cout << "PresidentialPardonForm " << this->_name << " for " << this->_target << " created." << std::endl;
-}
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src):
-    AForm(src._name, 72, 5),
-    _target(src._target)
-{
-    std::cout << "PresidentialPardonForm " << this->_name << " copied." << std::endl;
+    std::cout << "PresidentialPardonForm for " << this->_target << " created." << std::endl;
 }
 
-// PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm const &rhs)
-// {
-//     if (this != &rhs)
-//     {
-//         this->_name = rhs._name;
-//         this->_target = rhs._target;
-//     }
-//     return (*this);
-// }
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src):
+    AForm("PresidentialPardonForm", 72, 5),
+    _target(src._target)
+{
+    std::cout << "PresidentialPardonForm for " << this->_target << " copied." << std::endl;
+}
 
 std::string const	&PresidentialPardonForm::getTarget(void) const
 {
