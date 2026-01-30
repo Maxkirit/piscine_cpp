@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 09:06:55 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/30 17:37:46 by mturgeon         ###   ########.fr       */
+/*   Created: 2026/01/30 15:29:53 by mturgeon          #+#    #+#             */
+/*   Updated: 2026/01/30 15:44:00 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int main(int argc, char **argv)
+class Base
 {
-    if (argc != 2)
-    {
-        std::cout << "Enter one arg" << std::endl;
-        return (1);
-    }
+    public:
+        virtual ~Base(void){}
+};
 
-    ScalarConverter::convert(argv[1]);
-    return (0);
-}
+#endif

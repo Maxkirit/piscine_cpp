@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Underived.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 09:06:55 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/30 17:37:46 by mturgeon         ###   ########.fr       */
+/*   Created: 2026/01/30 16:06:01 by mturgeon          #+#    #+#             */
+/*   Updated: 2026/01/30 16:32:55 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef UNDERIVED_HPP
+# define UNDERIVED_HPP
 
-int main(int argc, char **argv)
+#include "Base.hpp"
+
+class Underived: public Base
 {
-    if (argc != 2)
-    {
-        std::cout << "Enter one arg" << std::endl;
-        return (1);
-    }
+    
+};
 
-    ScalarConverter::convert(argv[1]);
-    return (0);
-}
+#endif

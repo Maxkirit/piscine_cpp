@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 11:41:38 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/01/30 14:28:13 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/01/30 17:59:30 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,23 @@ void    ScalarConverter::printChar(std::string num)
 	else
 		std::cout << "'" <<  num[0] << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(num[0]) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num[0]) << "f" << std::endl;
-	std::cout << "double: " << std::fixed <<  std::setprecision(1) << static_cast<double>(num[0]) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(num[0]) << "f" << std::endl;
+	std::cout << "double: " << std::fixed <<  std::setprecision(2) << static_cast<double>(num[0]) << std::endl;
 	return ;
 }
 
 void    ScalarConverter::printInt(std::string num)
 {
 	std::cout << "in int" << std::endl;
+    if ((num[0] == '+' || num[0] == '-') && (num.substr(1, num.length() - 1).find_first_not_of("0123456789") != std::string::npos))
+		throw (std::invalid_argument(num));
+	if ((num[0] != '-' && num[0] != '+') && (num.substr(0, num.length()).find_first_not_of("0123456789") != std::string::npos))
+		throw (std::invalid_argument(num));
 	long input = atol(num.c_str());
 	std::cout << "char: ";
 	if (num.length() == 1)
 		std::cout << "'" << num[0] << "'" << std::endl;
-	else if (static_cast<char>(input) < 0)
+	else if (input > 255 || input < 0)
 		std::cout << "impossible" << std::endl;
 	else if (static_cast<char>(input) == 127 || (static_cast<char>(input) >= 0 && static_cast<char>(input) <= 32))
 		std::cout << "not printable" << std::endl;
@@ -59,12 +63,8 @@ void    ScalarConverter::printInt(std::string num)
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(input) << std::endl;
-	std::cout << "float: ";
-	if (input < std::numeric_limits<float>::min() || input > std::numeric_limits<float>::max())
-		std::cout << "impossible" << std::endl;
-	else
-		std::cout << std::fixed << std::setprecision(1) << static_cast<float>(input) << "f" << std::endl;
-	std::cout << "double: " << std::fixed <<  std::setprecision(1) << static_cast<double>(input) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(input) << "f" << std::endl;
+	std::cout << "double: " << std::fixed <<  std::setprecision(2) << static_cast<double>(input) << std::endl;
 	return ;
 }
 
@@ -87,15 +87,15 @@ void    ScalarConverter::printFloat(std::string num)
 	}
 	float input = atof(num.c_str());
 	std::cout << "char: ";
-	if (static_cast<char>(input) < 0)
+	if (input > 255 || input < 0)
 		std::cout << "impossible" << std::endl;
 	else if (static_cast<char>(input) == 127 || (static_cast<char>(input) >= 0 && static_cast<char>(input) <= 32))
 		std::cout << "not printable" << std::endl;
 	else
 		std::cout << "'" <<  static_cast<char>(input) << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(input) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << input << "f" << std::endl;
-	std::cout << "double: " << std::fixed <<  std::setprecision(1) << static_cast<double>(input) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2) << input << "f" << std::endl;
+	std::cout << "double: " << std::fixed <<  std::setprecision(2) << static_cast<double>(input) << std::endl;
 	return ;
 }
 
@@ -111,23 +111,24 @@ void    ScalarConverter::printDouble(std::string num)
 	{
 		if (num[i] == '.')
 			dotCount++;
-		if (dotCount > 1)
-			throw (std::invalid_argument(num));
 	}
+    if (dotCount != 1)
+		throw (std::invalid_argument(num));
 	double input = strtod(num.c_str(), 0);
 	std::cout << "char: ";
-	if (static_cast<char>(input) < 0)
+	if (input > 255 || input < 0)
 		std::cout << "impossible" << std::endl;
 	else if (static_cast<char>(input) == 127 || (static_cast<char>(input) >= 0 && static_cast<char>(input) <= 32))
 		std::cout << "not printable" << std::endl;
 	else
 		std::cout << "'" <<  static_cast<char>(input) << "'" << std::endl;
+    std::cout << "int: ";
 	if (input < std::numeric_limits<int>::min() || input > std::numeric_limits<int>::max())
 		std::cout << "impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(input) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(input) << "f" << std::endl;
-	std::cout << "double: " << std::fixed <<  std::setprecision(1) << input << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(2) << static_cast<float>(input) << "f" << std::endl;
+	std::cout << "double: " << std::fixed <<  std::setprecision(2) << input << std::endl;
 	return ;
 }
 void	ScalarConverter::printNan(void)
@@ -185,14 +186,13 @@ void    ScalarConverter::convert(std::string num)
 			return (printInff(num));
 		if (num.find_first_of("f") == num.length() - 1)
 			return (printFloat(num));
-		if (num.find_first_not_of("0123456789") == std::string::npos && num.length() < 10)
+		if (num.find_first_not_of("+-0123456789") == std::string::npos && num.length() < 11)
 			return (printInt(num));
 		if (num.find_first_not_of("+-.0123456789") == std::string::npos)
 			return (printDouble(num));
 		if (num.length() == 1)
 			return (printChar(num));
 		throw(std::invalid_argument(num));
-		
 	}
 	catch (std::exception const &e)
 	{
