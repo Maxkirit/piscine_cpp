@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 15:10:07 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/02 18:14:31 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/02 18:51:55 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,5 +189,5 @@ int main(void)
         std::cout << "stringConst[" << i << "]: '" << stringConst[i] << "'" << std::endl; 
     }
 
-    return (1);
+    return (0);
 }
