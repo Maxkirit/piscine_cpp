@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.hpp                                         :+:      :+:    :+:   */
+/*   whatever.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_HPP
-# define HEADER_HPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
 #include <iostream>
 #include <string>
