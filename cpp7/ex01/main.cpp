@@ -6,30 +6,11 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 15:10:07 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/02 18:51:55 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/03 10:54:46 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
-
-template<typename T>
-void    iter(size_t const size, T const *array, void (&f)(T const &))
-{
-    //if f const in param, typecast in const do some test !!!
-    for (size_t i = 0; i < size; i++)
-        f(array[i]);
-    return ;
-}
-
-template<typename T>
-void    iter(size_t const size, T *array, void (&f)(T &))
-{
-    //if f const in param, typecast in const do some test !!!
-    for (size_t i = 0; i < size; i++)
-        f(array[i]);
-    return ;
-}
-
 
 template <typename T>
 void    add10(T &num)
@@ -115,10 +96,10 @@ int main(void)
         std::cout << "tab3[" << i << "]: '" << tab3[i] << "'" << std::endl; 
     }
 
-    iter(10, tab0, add10);
-    iter(10, tab1, add10);
-    iter(10, tab2, add10);
-    iter(10, tab3, switchString);   
+    iter(tab0, 10, add10);
+    iter(tab1, 10, add10);
+    iter(tab2, 10, add10);
+    iter(tab3, 10, switchString);   
 
     std::cout << "~~~~~AFTER TRANSFORMATION (non const)~~~~~" << std::endl;
     std::cout << "ints:" << std::endl;
@@ -163,10 +144,10 @@ int main(void)
         std::cout << "stringConst[" << i << "]: '" << stringConst[i] << "'" << std::endl; 
     }
 
-    iter(3, intConst, print);
-    iter(3, floatConst, print);
-    iter(3, charConst, print);
-    iter(3, stringConst, print);
+    iter(intConst, 3, print);
+    iter(floatConst, 3, print);
+    iter(charConst, 3, print);
+    iter(stringConst, 3, print);
 
     std::cout << "~~~~~AFTER TRANSFORMATION FOR CONST~~~~~" << std::endl;
     for (int i = 0; i < 3; i++)

@@ -6,32 +6,11 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 14:55:11 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/02 15:09:17 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/03 10:45:26 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "whatever.hpp"
-
-template <typename T>
-void    swap(T &a, T &b)
-{
-    T temp = a;
-    a = b;
-    b = temp;
-    return ;
-}
-
-template <typename T>
-T const min(T const &a, T const &b)
-{
-    return (a < b ? (a) : (b));
-}
-
-template <typename T>
-T const max(T const &a, T const &b)
-{
-    return (a > b ? (a) : (b));
-}
 
 int main(void)
 {

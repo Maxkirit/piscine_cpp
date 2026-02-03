@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 20:37:18 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/03 10:33:25 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/03 10:58:09 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,17 @@ int main(void)
         std::cout << "|" << std::endl;
     }
 
+    std::cout << "~~~~~~MODIFIED FLOATS~~~~~~" <<std::endl;
+    for (int i = 0; i < 5; i++)
+    {
+        testFloat[i] = 0.5f;
+    }
+     for (int i = 0; i < 5; i++)
+    {
+        std::cout << testFloat[i] << " ";
+    }
+    std::cout << std::endl;
+    
     std::cout << "~~~~~~SIZES~~~~~" << std::endl;
     std::cout << "size float: " << testFloat.size() << std::endl;
     std::cout << "size char: " << testChar.size() << std::endl;
