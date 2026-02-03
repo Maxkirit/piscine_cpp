@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 18:28:33 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/02 20:35:00 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/03 10:29:20 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <iomanip>
+#include <ctime>
 
 template<typename T = int>
 class Array

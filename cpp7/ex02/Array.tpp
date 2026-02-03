@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 20:31:55 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/02 20:48:51 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/03 10:18:25 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,16 @@ Array<T>    &Array<T>::operator=(Array<T> const &rhs)
         delete [] this->_array;
         this->_array = new T[this->_size];
         for (size_t i = 0; i < this->_size; i++)
-            this->array[i] = rhs._array[i];
+            this->_array[i] = rhs._array[i];
     }
     return (*this);
 }
 
 template<typename T>
-Array<T>::Array(Array<T> const &src)
+Array<T>::Array(Array<T> const &src): _size(src._size), _array(new T[src._size])
 {
-    this->_size = src._size;
-    delete [] this->_array;
-    this->_array = new T[this->_size];
     for (size_t i = 0; i < this->_size; i++)
-        this->array[i] = src._array[i];  
+        this->_array[i] = src._array[i];  
 }
 
 template<typename T>
@@ -51,8 +48,6 @@ Array<T>::~Array(void)
 template<typename T>
 T   &Array<T>::operator[](size_t i)
 {
-    if (this->_size == 0 && i == 0)
-        return (this->_array[0]);
     if (i >= this->_size)
         throw(std::out_of_range("index out of range"));
     return (this->_array[i]);
