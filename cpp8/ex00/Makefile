@@ -1,11 +1,9 @@
 SRC = main.cpp \
-	ScalarConverter.cpp
-	
 
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 OBJS = $(SRC:.cpp=.o)
-NAME = ScalarConverter
+NAME = easyfind
 
 all: $(NAME)
 
