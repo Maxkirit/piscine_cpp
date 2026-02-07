@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:17:07 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/05 18:28:50 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/07 09:24:48 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ time_t  BitcoinExchange::convertDateToEpoch(std::string date)
 	temp = it;
 	days = atoi(std::string(temp, date.end()).c_str());
 	if (days < 1 || days > 31)
-        throw (std::runtime_error("wrong input"));
+		throw (std::runtime_error("wrong input"));
 	return ((year - 1970) * 31556926 + (month - 1) * 2629743 + (days - 1) * 86400);
 }
 
@@ -88,6 +88,17 @@ BitcoinExchange::BitcoinExchange(std::ifstream &data)
 			throw (std::runtime_error("duplicate date in data"));
 	}
 }
+
+//number based on line index of input.txt
+void	printLineNum(void)
+{
+	static int num = 2;
+
+	std::cout << "(" << num << "): ";
+	num++;
+	return ;
+}
+
 BitcoinExchange::~BitcoinExchange(void){}
 
 void	BitcoinExchange::convert(std::ifstream &input)
@@ -99,47 +110,58 @@ void	BitcoinExchange::convert(std::ifstream &input)
 		throw (std::runtime_error("bad logfile header"));
 
 	time_t	date;
-    std::string dateStr;
-    float   value;
+	std::string dateStr;
+	float   value;
 	while (getline(input, buffer))
 	{
+		printLineNum();
 		std::string::iterator mid = buffer.begin() + buffer.find_first_of("|");
-        if (buffer.find_first_of("|") == std::string::npos || distance(mid, buffer.end()) == 0)
-        {
-           std::cout << "Error: bad input => " << buffer << std::endl;
-            continue; 
-        }
-        try
-        {
-            dateStr = std::string(buffer.begin(), mid);
-            date = convertDateToEpoch(dateStr);
-        }
-        catch(const std::exception& e)
-        {
-            std::cout << "Error: bad input => " << buffer << std::endl;
-            continue;
-        }
-        value = atof(std::string(mid, buffer.end()).c_str()) * findRate(date);
-        std::cout << dateStr.erase(dateStr.find_last_not_of(" \t\n\r\f\v") + 1) << "=>" << value << std::endl;
+		if (buffer.find_first_of("|") == std::string::npos || distance(mid, buffer.end()) == 0)
+		{
+			std::cout << "Error: bad input => " << buffer << std::endl;
+			continue; 
+		}
+		try
+		{
+			dateStr = std::string(buffer.begin(), mid);
+			date = convertDateToEpoch(dateStr);
+		}
+		catch(const std::exception& e)
+		{
+			std::cout << "Error: bad input => " << buffer << std::endl;
+			continue;
+		}
+		value = atof(std::string(mid + 1, buffer.end()).c_str()) * findRate(date);
+		if (value > INT32_MAX)
+		{
+			std::cout << "Error: too large a number." << std::endl;
+			continue;
+		}
+		if (value < 0)
+		{
+			std::cout << "Error: not a positive number." << std::endl;
+			continue;
+		}
+		std::cout << dateStr.erase(dateStr.find_last_not_of(" \t\n\r\f\v") + 1) << " => " << findRate(date) << " = " <<  value << std::endl;
 	}
-    return ;
+	return ;
 }
 
 float   BitcoinExchange::findRate(time_t date)
 {
-    for (std::map<time_t, float>::const_reverse_iterator it = this->_rates.rbegin(); it != this->_rates.rend(); it++)
-    {
-        if (date >= it->first)
-            return (it->second);
-    }
-    throw (std::runtime_error("no matching rate found !"));
+	for (std::map<time_t, float>::const_reverse_iterator it = this->_rates.rbegin(); it != this->_rates.rend(); it++)
+	{
+		if (date >= it->first)
+			return (it->second);
+	}
+	throw (std::runtime_error("no matching rate found !"));
 }
 
 //Mostly for debugging puproses.
 void	BitcoinExchange::printData(void) const
 {
 	for(std::map<time_t, float>::const_iterator it = this->_rates.begin();
-    it != this->_rates.end(); ++it)
+	it != this->_rates.end(); ++it)
 	{
 		std::cout << it->first << ", " << it->second << "\n";
 	}

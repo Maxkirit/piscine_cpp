@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:15:56 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/05 17:48:47 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/07 09:17:14 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main (int argc, char **argv)
 		if (is_empty(data) || is_empty(input))
 			throw (std::runtime_error("empty file"));
 		BitcoinExchange	exchange(data);
-        exchange.printData();
 		exchange.convert(input);
 	}
 	catch(const std::exception& e)
