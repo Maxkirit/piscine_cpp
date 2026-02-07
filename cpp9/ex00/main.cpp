@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:15:56 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/07 09:17:14 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/07 09:37:00 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main (int argc, char **argv)
 	catch(const std::exception& e)
 	{
 		std::cerr << "Error: " << e.what() << '\n';
+        return (1);
 	}
 	return (0);
 }
