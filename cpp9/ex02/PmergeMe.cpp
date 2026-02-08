@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 11:34:40 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/07 17:29:43 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/08 20:08:00 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ double	PmergeMe::sortVec(void)
 	gettimeofday(&start, 0);
 	this->_vecSorted = _mergeInsertionSort(sequence);
 	gettimeofday(&finish, 0);
-	return (start.tv_usec - finish.tv_usec);
+	return (finish.tv_usec - start.tv_usec);
 }
 
 double	PmergeMe::sortList(void)
@@ -57,10 +57,7 @@ double	PmergeMe::sortList(void)
 
 std::vector<unsigned int>	PmergeMe::_strToVec(void) const
 {
-	std::stringstream			data(this->_sequence);
-	// std::istream_iterator<unsigned int> begin(data); //single pass operator that, when incremented, does >> every iteration
-	// std::istream_iterator<unsigned int>	end(); //end of stream marker
-	// std::vector<unsigned int> output(std::istream_iterator<unsigned int>(data), std::istream_iterator<unsigned int>());
+	std::stringstream	data(this->_sequence);
 	return (std::vector<unsigned int>(std::istream_iterator<unsigned int>(data), std::istream_iterator<unsigned int>()));
 }
 
@@ -70,3 +67,11 @@ std::list<unsigned int>		PmergeMe::_strToList(void) const
 	return (std::list<unsigned int>(std::istream_iterator<unsigned int>(data), std::istream_iterator<unsigned int>()));
 }
 
+//return Jacobsthal sequence number 
+//upper bound to limit cases that over
+unsigned int	PmergeMe::_jacobsthalNum(unsigned int n) const
+{
+	if (n > 33)
+		throw(std::runtime_error("Jacobsthal number overflow!"));
+	return ((pow(2, n) - pow(-1, n)) / 3);
+}

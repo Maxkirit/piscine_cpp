@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 11:28:50 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/07 17:23:22 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/08 18:08:47 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ int main(int argc, char **argv)
 	double	timeVec = toSort.sortVec();
 	double	timeList = toSort.sortList();
 
-	// std::cout << "~~~~~~~SORTED SEQUENCE~~~~~~~" << std::endl;
-	// for (std::vector<unsigned int>::const_iterator it = toSort.getVecSorted().begin(); it != toSort.getVecSorted().end(); it++)
-	// 	std::cout << *it << " ";
+	std::cout << "~~~~~~~SORTED SEQUENCE~~~~~~~" << std::endl;
+	for (std::vector<unsigned int>::const_iterator it = toSort.getVecSorted().begin(); it != toSort.getVecSorted().end(); it++)
+		std::cout << *it << " ";
 	std::cout << std::endl;
 	
-	std::cout << "Time to sort w/ vector: " << timeVec << "[unit of time to choose]" << std::endl;
-	std::cout << "Time to sort w/ list: " << timeList << "[unit of time to choose]" << std::endl;
+	std::cout << "Time to sort w/ vector: " << timeVec << " ms" << std::endl;
+	std::cout << "Time to sort w/ list:   " << timeList << " ms" << std::endl;
 	
 	return (0);
 }
