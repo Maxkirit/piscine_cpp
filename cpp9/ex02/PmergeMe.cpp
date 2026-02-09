@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 11:34:40 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/09 15:28:38 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/09 20:03:52 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ double	PmergeMe::sortVec(void)
 	std::vector<unsigned int>	sequence = this->_strToVec();
 
 	gettimeofday(&start, 0);
-	this->_vecSorted = _mergeInsertionSort(sequence);
+	_mergeInsertionSort(sequence, 1);
+    this->_vecSorted = sequence;
 	gettimeofday(&finish, 0);
 	return (finish.tv_usec - start.tv_usec);
 }
@@ -50,7 +51,8 @@ double	PmergeMe::sortList(void)
 	std::list<unsigned int>	sequence = this->_strToList();
 
 	gettimeofday(&start, 0);
-	this->_listSorted = _mergeInsertionSort(sequence);
+	_mergeInsertionSort(sequence, 1);
+    this->_listSorted = sequence;
 	gettimeofday(&finish, 0);
 	return (finish.tv_usec - start.tv_usec);
 }
@@ -71,7 +73,11 @@ std::list<unsigned int>		PmergeMe::_strToList(void) const
 //upper bound to limit cases that overflow
 unsigned int	PmergeMe::_jacobsthalNum(unsigned int n) const
 {
-	if (n > 33)
-		throw(std::runtime_error("Jacobsthal number overflow!"));
-	return ((std::pow(2, n) - std::pow(-1, n)) / 3);
+	if (n == 0)
+        return (0);
+    if (n == 1)
+        return (1);
+    return (_jacobsthalNum(n - 1) + 2 * _jacobsthalNum(n - 2));
 }
+
+// long PmergeMe::_jacobsthalNum(long n) const { return round((pow(2, n + 1) + pow(-1, n)) / 3); }

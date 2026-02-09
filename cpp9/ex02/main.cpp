@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 11:28:50 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/09 11:23:21 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/09 19:26:00 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,27 @@ int main(int argc, char **argv)
 	}
 
 	PmergeMe	toSort(input);
+    std::stringstream    out;
 
 	std::cout << "~~~~~~~ORIGINAL SEQUENCE~~~~~~~" << std::endl;
 	std::cout << input << std::endl;
 
-	std::cout << "sort vec:" << std::endl;
 	double	timeVec = toSort.sortVec();
-	std::cout << "sort list:" << std::endl;
 	double	timeList = toSort.sortList();
 
 	std::cout << "~~~~~~~SORTED SEQUENCE~~~~~~~" << std::endl;
 	for (std::vector<unsigned int>::const_iterator it = toSort.getVecSorted().begin(); it != toSort.getVecSorted().end(); it++)
+    {
 		std::cout << *it << " ";
+        out << *it << "\n";
+    }
 	std::cout << std::endl;
 
 	std::cout << "Time to sort w/ vector: " << timeVec << " ms" << std::endl;
 	std::cout << "Time to sort w/ list:   " << timeList << " ms" << std::endl;
 
+    std::ofstream testFile("result.txt");
+    testFile.clear();
+    testFile << out.rdbuf();
 	return (0);
 }
