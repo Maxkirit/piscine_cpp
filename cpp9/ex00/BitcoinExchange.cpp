@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:17:07 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/07 09:24:48 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/09 08:03:42 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ void	BitcoinExchange::convert(std::ifstream &input)
 			continue;
 		}
 		value = atof(std::string(mid + 1, buffer.end()).c_str()) * findRate(date);
-		if (value > INT32_MAX)
+		if (value > std::numeric_limits<int>::max())
 		{
 			std::cout << "Error: too large a number." << std::endl;
 			continue;

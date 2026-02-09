@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 11:28:50 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/08 18:08:47 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/09 11:23:21 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ std::string validateInput(char **argv)
 	for (int i = 0; argv[i] != 0; i++)
 	{
 		std::string elem(argv[i]);
-		if (elem.find_first_not_of("0123456789") != std::string::npos || strtoul(elem.c_str(), nullptr, 10) > INT32_MAX)
+		if (elem.find_first_not_of("0123456789") != std::string::npos || strtoul(elem.c_str(), 0, 10) > 2147483647)
 			throw (std::runtime_error("non unsigned int elem in input"));
 		sequence << elem << " ";
 	}
@@ -46,16 +46,18 @@ int main(int argc, char **argv)
 	std::cout << "~~~~~~~ORIGINAL SEQUENCE~~~~~~~" << std::endl;
 	std::cout << input << std::endl;
 
+	std::cout << "sort vec:" << std::endl;
 	double	timeVec = toSort.sortVec();
+	std::cout << "sort list:" << std::endl;
 	double	timeList = toSort.sortList();
 
 	std::cout << "~~~~~~~SORTED SEQUENCE~~~~~~~" << std::endl;
 	for (std::vector<unsigned int>::const_iterator it = toSort.getVecSorted().begin(); it != toSort.getVecSorted().end(); it++)
 		std::cout << *it << " ";
 	std::cout << std::endl;
-	
+
 	std::cout << "Time to sort w/ vector: " << timeVec << " ms" << std::endl;
 	std::cout << "Time to sort w/ list:   " << timeList << " ms" << std::endl;
-	
+
 	return (0);
 }

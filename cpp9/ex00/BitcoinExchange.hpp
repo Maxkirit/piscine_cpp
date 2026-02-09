@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:16:17 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/05 18:06:06 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/09 08:02:25 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 #include <ctime>
 #include <fstream>
 #include <cstdlib>
+#include <limits>
 
 
 class BitcoinExchange

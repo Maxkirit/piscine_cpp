@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 11:34:40 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/08 20:08:00 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/09 15:28:38 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ std::list<unsigned int>		PmergeMe::_strToList(void) const
 }
 
 //return Jacobsthal sequence number 
-//upper bound to limit cases that over
+//upper bound to limit cases that overflow
 unsigned int	PmergeMe::_jacobsthalNum(unsigned int n) const
 {
 	if (n > 33)
 		throw(std::runtime_error("Jacobsthal number overflow!"));
-	return ((pow(2, n) - pow(-1, n)) / 3);
+	return ((std::pow(2, n) - std::pow(-1, n)) / 3);
 }
