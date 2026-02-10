@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:17:07 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/09 08:03:42 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:27:32 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	BitcoinExchange::convert(std::ifstream &input)
 	{
 		printLineNum();
 		std::string::iterator mid = buffer.begin() + buffer.find_first_of("|");
-		if (buffer.find_first_of("|") == std::string::npos || distance(mid, buffer.end()) == 0)
+		if (buffer.find_first_of("|") == std::string::npos || std::string(mid + 1, buffer.end()).find_first_of("0.123456789") != std::string::npos)
 		{
 			std::cout << "Error: bad input => " << buffer << std::endl;
 			continue; 

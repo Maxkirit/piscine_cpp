@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 09:31:13 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/07 11:20:01 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:25:39 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	evaluateExpression(std::string expr, std::string result)
 
 void	runTest(std::string filename)
 {
-	std::ifstream			file(filename);
+	std::ifstream			file(filename.c_str());
 	int						index = 1;
 	std::string				buffer;
 	std::string				RPN;

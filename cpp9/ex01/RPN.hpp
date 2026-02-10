@@ -6,7 +6,7 @@
 /*   By: mturgeon <maxime.p.turgeon@gmail.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 09:31:36 by mturgeon          #+#    #+#             */
-/*   Updated: 2026/02/07 10:59:41 by mturgeon         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:25:28 by mturgeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <stack>
+#include <cmath>
 
 class RPN
 {
